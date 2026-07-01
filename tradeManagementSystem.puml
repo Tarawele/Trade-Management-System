@@ -1,0 +1,58 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Клиент" as Client
+actor "Менеджер" as Manager
+actor "Администратор" as Admin
+actor "Email Service" as Email <<secondary>>
+
+rectangle "Trade Management System" {
+    ' === ЛКИЕНТ ===
+    usecase "Регистрация\nв системе" as UC_Register
+    usecase "Оформить заказ" as UC_Order
+    usecase "Проверить баланс" as UC_CheckBalance
+    usecase "Применить скидку VIP" as UC_VIPDiscount
+    usecase "Просмотреть историю\nсделок" as UC_History
+    usecase "Отменить заказ" as UC_Cancel
+    
+    ' === МЕНЕДЖЕР ===
+    usecase "Управление\nпользователями" as UC_ManageUsers
+    usecase "Модерация\nконтента" as UC_Moderate
+    usecase "Генерация\nотчётов" as UC_Reports
+    
+    ' === АДМИНИСТРАТОР ===
+    usecase "Настройка\nсистемы" as UC_Settings
+    
+    ' === СИСТЕМА ===
+    usecase "Отправить\nуведомление" as UC_Notify
+
+    ' Include: общая функциональность
+    UC_Order ..>UC_CheckBalance : <<include>>
+    UC_Register ..> UC_CheckBalance : <<include>>
+    UC_Cancel ..> UC_Notify : <<include>>
+    UC_ManageUsers ..> UC_Notify : <<include>>
+
+    ' Extend: опциональное поведение
+    UC_VIPDiscount ..> UC_Order : <<extend>>
+    note right of UC_VIPDiscount
+      [условие: клиент VIP]
+    end note
+}
+
+' === АССОЦИАЦИИ АКТЁРОВ ===
+Client --> UC_Register
+Client --> UC_Order
+Client --> UC_History
+Client --> UC_Cancel
+
+Manager --> UC_ManageUsers
+Manager --> UC_Moderate
+Manager --> UC_Reports
+
+Admin --> UC_Settings
+Admin --> UC_Reports
+
+Email --> UC_Notify
+
+@enduml
