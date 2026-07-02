@@ -1,0 +1,78 @@
+@startuml
+title Авторизация пользователя - Activity Diagram
+
+|#E3F2FD|Frontend|
+|#E8F5E9|Backend|
+|#FFF3E0|Database|
+
+|Frontend|
+start
+:Показать форму логина;
+:Ввести логин и пароль;
+
+:POST /api/auth/login
+(login, password);
+
+|Backend|
+:Получить запрос;
+
+if (Валидный формат?) then (да)
+  
+  :SELECT пользователя по email;
+  
+  |Database|
+  :Выполнить запрос;
+  :Вернуть user_data или NULL;
+  
+  |Backend|
+  :Проверить hash(password) == stored_hash;
+  
+  if (Пароль совпадает?) then (да)
+    
+    :Генерировать JWT токен
+    (access + refresh);
+    
+    |Database|
+    :INSERT session в БД;
+    :Подтвердить транзакцию;
+    
+    |Backend|
+    :Вернуть {token, user};
+    
+    |Frontend|
+    :Сохранить access_token
+    в httpOnly cookie;
+    
+    :Сохранить refresh_token;
+    
+    :Перенаправить на /dashboard;
+    
+    stop
+    
+  else (нет)
+    
+    |Backend|
+    :Вернуть 401 Unauthorized;
+    
+    |Frontend|
+    :Показать ошибку
+    "Неверные данные";
+    
+    end
+    
+  endif
+  
+else (нет)
+  
+  |Backend|
+  :Вернуть 400 Bad Request;
+  
+  |Frontend|
+  :Показать сообщение
+  об ошибке валидации;
+  
+  end
+
+endif
+
+@enduml
