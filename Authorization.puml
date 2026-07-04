@@ -1,62 +1,162 @@
 @startuml
-title Авторизация пользователя - Activity Diagram
+title Авторизация с обработкой ошибок — Activity Diagram
+
+skinparam backgroundColor #FEFEFE
 
 |#E3F2FD|Frontend|
 |#E8F5E9|Backend|
 |#FFF3E0|Database|
+|#F3E5F5|Email Service|
 
 |Frontend|
 start
 :Показать форму логина;
 :Ввести логин и пароль;
 
-:POST /api/auth/login
-(login, password);
+:POST /api/auth/login;
 
 |Backend|
-:Получить запрос;
+:Валидировать формат JSON;
 
-if (Валидный формат?) then (да)
+if (Формат валиден?) then (да)
   
-  :SELECT пользователя по email;
+  :Проверить rate limit (Redis);
   
-  |Database|
-  :Выполнить запрос;
-  :Вернуть user_data или NULL;
-  
-  |Backend|
-  :Проверить hash(password) == stored_hash;
-  
-  if (Пароль совпадает?) then (да)
+  if (Не превышен?) then (да)
     
-    :Генерировать JWT токен
-    (access + refresh);
+    :SELECT пользователя по email;
     
     |Database|
-    :INSERT session в БД;
-    :Подтвердить транзакцию;
+    :Выполнить запрос;
     
-    |Backend|
-    :Вернуть {token, user};
-    
-    |Frontend|
-    :Сохранить access_token
-    в httpOnly cookie;
-    
-    :Сохранить refresh_token;
-    
-    :Перенаправить на /dashboard;
-    
-    stop
+    if (Таймаут БД?) then (нет)
+      
+      :Вернуть user или NULL;
+      
+      |Backend|
+      if (Пользователь найден?) then (да)
+        
+        :Проверить failed_login_count;
+        
+        if (Аккаунт заблокирован?) then (нет)
+          
+          :Проверить hash(password);
+          
+          if (Пароль верный?) then (да)
+            
+            :Сбросить failed_login_count;
+            :Генерировать JWT токен;
+            
+            |Database|
+            :INSERT session;
+            :Подтвердить;
+            
+            |Backend|
+            :Отправить email
+            {login_success}
+            **<<send signal>>**;
+            
+            |Email Service|
+            :Принять сигнал
+            {login_success}
+            **<<accept event>>**;
+            
+            :Отправить email;
+            
+            if (Успешно?) then (да)
+              :Логировать доставку;
+            else (нет)
+              :Таймаут 5min;
+              :Повторная отправка;
+            endif
+            
+            |Backend|
+            :Вернуть {token, user};
+            
+            |Frontend|
+            :Сохранить токен;
+            :Перейти в профиль;
+            
+            stop
+            
+          else (нет)
+            
+            |Backend|
+            :Increment failed_login_count;
+            :UPDATE users;
+            
+            if (failed_count >= 3?) then (да)
+              :Блокировать аккаунт;
+              :Вернуть 423 Locked;
+              
+              |Frontend|
+              :Показать ошибку
+              "Аккаунт заблокирован";
+              
+              end
+              
+            else (нет)
+              :Вернуть 401 Unauthorized;
+              
+              |Frontend|
+              :Показать ошибку
+              "Неверные данные";
+              
+              end
+            endif
+            
+          endif
+          
+        else (да)
+          
+          |Backend|
+          :Вернуть 423 Locked;
+          
+          |Frontend|
+          :Показать ошибку
+          "Аккаунт заблокирован";
+          
+          end
+          
+        endif
+        
+      else (нет)
+        
+        |Backend|
+        :Вернуть 404 Not Found;
+        
+        |Frontend|
+        :Показать ошибку
+        "Пользователь не найден";
+        
+        end
+        
+      endif
+      
+    else (да)
+      
+      |Database|
+      :Вернуть таймаут;
+      
+      |Backend|
+      :Вернуть 504 Gateway Timeout;
+      
+      |Frontend|
+      :Показать ошибку
+      "Сервис недоступен";
+      
+      end
+      
+    endif
     
   else (нет)
     
     |Backend|
-    :Вернуть 401 Unauthorized;
+    :Вернуть 429 Too Many Requests;
     
     |Frontend|
     :Показать ошибку
-    "Неверные данные";
+    "Слишком много попыток";
     
     end
     
@@ -68,11 +168,11 @@ else (нет)
   :Вернуть 400 Bad Request;
   
   |Frontend|
-  :Показать сообщение
-  об ошибке валидации;
+  :Показать ошибку
+  "Неверный формат данных";
   
   end
-
+  
 endif
 
 @enduml
