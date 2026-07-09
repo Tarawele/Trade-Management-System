@@ -1,0 +1,61 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+title Class Diagram — Domain «Заказ»
+
+class Customer {
+  -customerId: UUID
+  -name: String
+  -email: String
+  -phone: String
+  +placeOrder(): Order
+  +updateProfile(): void
+}
+
+class Order {
+  -orderId: UUID
+  -orderDate: DateTime
+  -status: OrderStatus
+  -totalAmount: Decimal
+  +calculateTotal(): Decimal
+  +submit(): void
+  +cancel(): void
+  +pay(p: Payment): void
+}
+
+class OrderItem {
+  -itemId: UUID
+  -quantity: int
+  -unitPrice: Decimal
+  +getSubtotal(): Decimal
+}
+
+class Product {
+  -productId: UUID
+  -sku: String
+  -name: String
+  -price: Decimal
+  -stockQuantity: int
+  +checkAvailability(): Boolean
+  +updateStock(qty: int): void
+}
+
+class Payment {
+  -paymentId: UUID
+  -amount: Decimal
+  -paymentDate: DateTime
+  -status: PaymentStatus
+  -method: PaymentMethod
+  +process(): Boolean
+  +refund(): Boolean
+}
+
+' Ассоциации
+Customer "1" --> "0..*" Order : places
+OrderItem "*" --> "1" Product : product
+Order "1" --> "0..1" Payment : paid by
+
+' Композиция
+Order "1" *-- "1..*" OrderItem
+
+@enduml

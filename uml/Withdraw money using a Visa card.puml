@@ -1,0 +1,42 @@
+@startuml
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+
+title SSD: Withdraw Money Using Visa Card\n(Main Success Scenario)
+
+actor ":Customer" as Customer
+participant ":ATM_System" as System
+
+== Card Insertion ==
+Customer -> System : 1: insertCard(cardData)
+activate System
+System --> Customer : 2: display("Enter PIN")
+deactivate System
+
+== PIN Entry ==
+Customer -> System : 3: enterPIN(pin)
+activate System
+System --> Customer : 4: display(accountMenu)
+deactivate System
+
+== Withdrawal Selection ==
+Customer -> System : 5: selectWithdrawal()
+activate System
+System --> Customer : 6: display(amountOptions)
+deactivate System
+
+== Amount Entry & Validation ==
+Customer -> System : 7: enterAmount(amount)
+activate System
+System --> Customer : 8: display("Dispensing cash...")
+System --> Customer : 9: dispenseCash(amount)
+
+== Card Ejection ==
+System --> Customer : 10: ejectCard()
+System --> Customer : 11: display("Take your card and cash")
+deactivate System
+
+== Session End ==
+Customer -> System : 12: takeCardAndCash()
+
+@enduml

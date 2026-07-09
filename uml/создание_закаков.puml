@@ -1,0 +1,50 @@
+@startuml
+title Создание заказа — Sequence Diagram
+
+actor ":Клиент" as C
+participant ":API_Gateway" as API
+participant ":Сервис_заказов" as OS
+participant ":БД_заказов" as DB
+participant ":Сервис_уведомлений" as NS
+
+== Запрос ==
+C -> API : POST /orders(items, address)
+activate API
+API -> OS : createOrder(dto)
+activate OS
+
+== Валидация ==
+OS -> OS : validateOrder()
+OS -> OS : calculateTotal()
+
+== Сохранение или ошибка ==
+alt валидно
+    OS -> DB : INSERT order
+    activate DB
+    DB --> OS : return orderId
+    deactivate DB
+    
+    OS ->> NS : sendNotification(orderCreated)
+    activate NS
+    
+    OS --> API : return :Order
+else невалидно
+    OS --> API : return :ValidationError
+end
+
+deactivate OS
+API --> C : HTTP 201 Created / 400 Bad Request
+deactivate API
+
+== Параллельные уведомления ==
+par
+    NS -> NS : sendEmail()
+else
+    NS -> NS : sendPush()
+else
+    NS -> NS : sendSMS()
+end
+
+deactivate NS
+
+@enduml

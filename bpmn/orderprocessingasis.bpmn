@@ -1,0 +1,1321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:drools="http://www.jboss.org/drools" id="_h6pm4FO8ED-KY67hY5CZ8w" targetNamespace="http://www.omg.org/bpmn20" exporter="jBPM Process Modeler" exporterVersion="2.0" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd http://www.omg.org/spec/DD/20100524/DC DC.xsd http://www.omg.org/spec/DD/20100524/DI DI.xsd ">
+  <bpmn2:itemDefinition id="_Activity_1ydj0pz_namespaceInputXItem" structureRef="java.lang.String" />
+  <bpmn2:itemDefinition id="_Activity_1ydj0pz_modelInputXItem" structureRef="java.lang.String" />
+  <bpmn2:itemDefinition id="_Activity_1ydj0pz_decisionInputXItem" structureRef="java.lang.String" />
+  <bpmn2:itemDefinition id="_Activity_1pr8iv2_SkippableInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1pr8iv2_PriorityInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1pr8iv2_CommentInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1pr8iv2_DescriptionInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1pr8iv2_CreatedByInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1pr8iv2_TaskNameInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1pr8iv2_GroupIdInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1pr8iv2_ContentInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1pr8iv2_NotStartedReassignInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1pr8iv2_NotCompletedReassignInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1pr8iv2_NotStartedNotifyInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1pr8iv2_NotCompletedNotifyInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1jsbru1_SkippableInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1jsbru1_PriorityInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1jsbru1_CommentInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1jsbru1_DescriptionInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1jsbru1_CreatedByInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1jsbru1_TaskNameInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1jsbru1_GroupIdInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1jsbru1_ContentInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1jsbru1_NotStartedReassignInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1jsbru1_NotCompletedReassignInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1jsbru1_NotStartedNotifyInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1jsbru1_NotCompletedNotifyInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_12j9lif_SkippableInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_12j9lif_PriorityInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_12j9lif_CommentInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_12j9lif_DescriptionInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_12j9lif_CreatedByInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_12j9lif_TaskNameInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_12j9lif_GroupIdInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_12j9lif_ContentInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_12j9lif_NotStartedReassignInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_12j9lif_NotCompletedReassignInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_12j9lif_NotStartedNotifyInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_12j9lif_NotCompletedNotifyInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0caparb_SkippableInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0caparb_PriorityInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0caparb_CommentInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0caparb_DescriptionInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0caparb_CreatedByInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0caparb_TaskNameInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0caparb_GroupIdInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0caparb_ContentInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0caparb_NotStartedReassignInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0caparb_NotCompletedReassignInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0caparb_NotStartedNotifyInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0caparb_NotCompletedNotifyInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0c79n6k_SkippableInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0c79n6k_PriorityInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0c79n6k_CommentInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0c79n6k_DescriptionInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0c79n6k_CreatedByInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0c79n6k_TaskNameInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0c79n6k_GroupIdInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0c79n6k_ContentInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0c79n6k_NotStartedReassignInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0c79n6k_NotCompletedReassignInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0c79n6k_NotStartedNotifyInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0c79n6k_NotCompletedNotifyInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1yew5h8_SkippableInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1yew5h8_PriorityInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1yew5h8_CommentInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1yew5h8_DescriptionInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1yew5h8_CreatedByInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1yew5h8_TaskNameInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1yew5h8_GroupIdInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1yew5h8_ContentInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1yew5h8_NotStartedReassignInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1yew5h8_NotCompletedReassignInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1yew5h8_NotStartedNotifyInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1yew5h8_NotCompletedNotifyInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_09b1u4d_SkippableInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_09b1u4d_PriorityInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_09b1u4d_CommentInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_09b1u4d_DescriptionInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_09b1u4d_CreatedByInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_09b1u4d_TaskNameInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_09b1u4d_GroupIdInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_09b1u4d_ContentInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_09b1u4d_NotStartedReassignInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_09b1u4d_NotCompletedReassignInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_09b1u4d_NotStartedNotifyInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_09b1u4d_NotCompletedNotifyInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_16lsgok_SkippableInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_16lsgok_PriorityInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_16lsgok_CommentInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_16lsgok_DescriptionInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_16lsgok_CreatedByInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_16lsgok_TaskNameInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_16lsgok_GroupIdInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_16lsgok_ContentInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_16lsgok_NotStartedReassignInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_16lsgok_NotCompletedReassignInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_16lsgok_NotStartedNotifyInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_16lsgok_NotCompletedNotifyInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0xgjbsk_SkippableInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0xgjbsk_PriorityInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0xgjbsk_CommentInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0xgjbsk_DescriptionInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0xgjbsk_CreatedByInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0xgjbsk_TaskNameInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0xgjbsk_GroupIdInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0xgjbsk_ContentInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0xgjbsk_NotStartedReassignInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0xgjbsk_NotCompletedReassignInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0xgjbsk_NotStartedNotifyInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0xgjbsk_NotCompletedNotifyInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1t30ona_SkippableInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1t30ona_PriorityInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1t30ona_CommentInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1t30ona_DescriptionInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1t30ona_CreatedByInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1t30ona_TaskNameInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1t30ona_GroupIdInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1t30ona_ContentInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1t30ona_NotStartedReassignInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1t30ona_NotCompletedReassignInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1t30ona_NotStartedNotifyInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_1t30ona_NotCompletedNotifyInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_15n1i7s_SkippableInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_15n1i7s_PriorityInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_15n1i7s_CommentInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_15n1i7s_DescriptionInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_15n1i7s_CreatedByInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_15n1i7s_TaskNameInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_15n1i7s_GroupIdInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_15n1i7s_ContentInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_15n1i7s_NotStartedReassignInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_15n1i7s_NotCompletedReassignInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_15n1i7s_NotStartedNotifyInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_15n1i7s_NotCompletedNotifyInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_84830D58-CFF4-4AB8-B537-EB813A138617" structureRef="" />
+  <bpmn2:itemDefinition id="_9EAF15BC-F06E-4EA4-BE19-0E61BF750559" structureRef="" />
+  <bpmn2:itemDefinition id="_013394EE-6B90-4CEB-A875-DB13DDA7E092" structureRef="" />
+  <bpmn2:itemDefinition id="_52A15305-A0DB-48AC-BF45-334FC6299D96" structureRef="" />
+  <bpmn2:itemDefinition id="_Activity_0p5v16j_SkippableInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0p5v16j_PriorityInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0p5v16j_CommentInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0p5v16j_DescriptionInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0p5v16j_CreatedByInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0p5v16j_TaskNameInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0p5v16j_GroupIdInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0p5v16j_ContentInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0p5v16j_NotStartedReassignInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0p5v16j_NotCompletedReassignInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0p5v16j_NotStartedNotifyInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_Activity_0p5v16j_NotCompletedNotifyInputXItem" structureRef="Object" />
+  <bpmn2:itemDefinition id="_5A906C03-008B-49C7-AB76-8F2F177EA16D" structureRef="" />
+  <bpmn2:itemDefinition id="_93836E18-DA35-4929-97E3-5B2FFB8616EE" structureRef="" />
+  <bpmn2:collaboration id="_3A5A1E52-2A2F-4F31-9013-34A38880923A" name="Default Collaboration">
+    <bpmn2:participant id="_967D3A06-B69A-4004-ABD9-D45C892DABA5" name="Pool Participant" processRef="order_processing_as_is" />
+  </bpmn2:collaboration>
+  <bpmn2:process id="order_processing_as_is" name="order-processing-as-is" processType="Public" isExecutable="true" drools:packageName="com.example" drools:version="1.0" drools:adHoc="false">
+    <bpmn2:laneSet>
+      <bpmn2:lane id="Lane_1w0w0ye" name="Management / Authorization">
+        <bpmn2:extensionElements>
+          <drools:metaData name="elementname">
+            <drools:metaValue>Management / Authorization</drools:metaValue>
+          </drools:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:flowNodeRef>Activity_1ydj0pz</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Gateway_07w1mvl</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Activity_1pr8iv2</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Activity_09rhf8i</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Activity_1jsbru1</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Activity_12j9lif</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Activity_0caparb</bpmn2:flowNodeRef>
+      </bpmn2:lane>
+      <bpmn2:lane id="Lane_1nmw5hd" name="Legal / Compliance">
+        <bpmn2:extensionElements>
+          <drools:metaData name="elementname">
+            <drools:metaValue>Legal / Compliance</drools:metaValue>
+          </drools:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:flowNodeRef>Activity_0c79n6k</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Activity_1yew5h8</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Gateway_043f4hc</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Activity_09b1u4d</bpmn2:flowNodeRef>
+      </bpmn2:lane>
+      <bpmn2:lane id="Lane_1sfq7vr" name="Sales / Commercial">
+        <bpmn2:extensionElements>
+          <drools:metaData name="elementname">
+            <drools:metaValue>Sales / Commercial</drools:metaValue>
+          </drools:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:flowNodeRef>Activity_16lsgok</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Activity_0xgjbsk</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Gateway_0d2mu35</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Activity_1t30ona</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Activity_15n1i7s</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Activity_1ijamrd</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Activity_0oqftyw</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Event_0pxedle</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Event_1bl2qk0</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Event_1frad2u</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Activity_0p5v16j</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Event_0db25fa</bpmn2:flowNodeRef>
+      </bpmn2:lane>
+    </bpmn2:laneSet>
+    <bpmn2:sequenceFlow id="Flow_0u6z56m" sourceRef="Event_0pxedle" targetRef="Event_1bl2qk0" />
+    <bpmn2:sequenceFlow id="Flow_0i4kcla" sourceRef="Activity_0oqftyw" targetRef="Event_0pxedle" />
+    <bpmn2:sequenceFlow id="Flow_0vpcbh7" sourceRef="Activity_1ijamrd" targetRef="Activity_0p5v16j" />
+    <bpmn2:sequenceFlow id="Flow_1u0k0n7" name="yes" sourceRef="Gateway_0d2mu35" targetRef="Activity_15n1i7s">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>yes</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="Flow_19lm79q" name="No" sourceRef="Gateway_0d2mu35" targetRef="Activity_1t30ona">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>No</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="Flow_049s87m" sourceRef="Event_0db25fa" targetRef="Gateway_0d2mu35" />
+    <bpmn2:sequenceFlow id="Flow_1nqb9o7" sourceRef="Event_1frad2u" targetRef="Activity_0xgjbsk" />
+    <bpmn2:sequenceFlow id="Flow_0m5t8jo" sourceRef="Activity_1t30ona" targetRef="Activity_16lsgok" />
+    <bpmn2:sequenceFlow id="Flow_1s8c9l0" sourceRef="Activity_0xgjbsk" targetRef="Activity_16lsgok" />
+    <bpmn2:sequenceFlow id="Flow_1ll53my" sourceRef="Activity_09b1u4d" targetRef="Activity_1ijamrd" />
+    <bpmn2:sequenceFlow id="Flow_0kw34ir" name="No" sourceRef="Gateway_043f4hc" targetRef="Activity_09b1u4d">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>No</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="Flow_18ernjm" sourceRef="Activity_1yew5h8" targetRef="Gateway_043f4hc" />
+    <bpmn2:sequenceFlow id="Flow_1w9b4kq" sourceRef="Activity_0p5v16j" targetRef="Activity_1yew5h8" />
+    <bpmn2:sequenceFlow id="Flow_147tsrg" sourceRef="Activity_15n1i7s" targetRef="Activity_0c79n6k" />
+    <bpmn2:sequenceFlow id="Flow_1q0oxd9" sourceRef="Activity_0caparb" targetRef="Activity_0oqftyw" />
+    <bpmn2:sequenceFlow id="Flow_1tvt1bq" sourceRef="Activity_12j9lif" targetRef="Activity_0caparb" />
+    <bpmn2:sequenceFlow id="Flow_0qqxi05" name="Yes" sourceRef="Gateway_043f4hc" targetRef="Activity_12j9lif">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>Yes</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="Flow_1mr2q9a" sourceRef="Activity_1jsbru1" targetRef="Activity_1ijamrd" />
+    <bpmn2:sequenceFlow id="Flow_08tv67q" sourceRef="Activity_0c79n6k" targetRef="Activity_1jsbru1" />
+    <bpmn2:sequenceFlow id="Flow_0hqzmyk" sourceRef="Activity_09rhf8i" targetRef="Event_0db25fa" />
+    <bpmn2:sequenceFlow id="Flow_0ry8u0c" sourceRef="Activity_1pr8iv2" targetRef="Activity_16lsgok" />
+    <bpmn2:sequenceFlow id="Flow_07hll7g" name="No" sourceRef="Gateway_07w1mvl" targetRef="Activity_1pr8iv2">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>No</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="Flow_1ydridj" name="Yes" sourceRef="Gateway_07w1mvl" targetRef="Activity_09rhf8i">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>Yes</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="Flow_0urgfzv" sourceRef="Activity_1ydj0pz" targetRef="Gateway_07w1mvl" />
+    <bpmn2:sequenceFlow id="Flow_11mtltw" sourceRef="Activity_16lsgok" targetRef="Activity_1ydj0pz" />
+    <bpmn2:callActivity id="_3C475AB8-3164-4E36-B1FB-9181A8DE970E" name="Sub-process" calledElement="" drools:independent="false" drools:waitForCompletion="true">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>Sub-process</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:callActivity>
+    <bpmn2:intermediateCatchEvent id="Event_0db25fa" name="Receive Counter-Offer or Acceptance">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>Receive Counter-Offer or Acceptance</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_0hqzmyk</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_049s87m</bpmn2:outgoing>
+      <bpmn2:messageEventDefinition />
+    </bpmn2:intermediateCatchEvent>
+    <bpmn2:userTask id="Activity_0p5v16j" name="Receive Marked-Up Contract or Comments">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>Receive Marked-Up Contract or Comments</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_0vpcbh7</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_1w9b4kq</bpmn2:outgoing>
+      <bpmn2:ioSpecification>
+        <bpmn2:dataInput id="Activity_0p5v16j_TaskNameInputX" itemSubjectRef="_Activity_0p5v16j_TaskNameInputXItem" name="TaskName" drools:dtype="Object" />
+        <bpmn2:dataInput id="Activity_0p5v16j_SkippableInputX" itemSubjectRef="_Activity_0p5v16j_SkippableInputXItem" name="Skippable" drools:dtype="Object" />
+        <bpmn2:inputSet>
+          <bpmn2:dataInputRefs>Activity_0p5v16j_TaskNameInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>Activity_0p5v16j_SkippableInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Activity_0p5v16j_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression">Task</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression">Activity_0p5v16j_TaskNameInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Activity_0p5v16j_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression">false</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression">Activity_0p5v16j_SkippableInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:startEvent id="Event_1frad2u" name="Receive Inquiry from Russian Buyer">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>Receive Inquiry from Russian Buyer</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:outgoing>Flow_1nqb9o7</bpmn2:outgoing>
+      <bpmn2:messageEventDefinition />
+    </bpmn2:startEvent>
+    <bpmn2:endEvent id="Event_1bl2qk0" name="Contract Executed (Supplier Copy Filed)">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>Contract Executed (Supplier Copy Filed)</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_0u6z56m</bpmn2:incoming>
+      <bpmn2:messageEventDefinition />
+    </bpmn2:endEvent>
+    <bpmn2:intermediateCatchEvent id="Event_0pxedle" name="Receive Counter-Signed Contract from Buyer">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>Receive Counter-Signed Contract from Buyer</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_0i4kcla</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_0u6z56m</bpmn2:outgoing>
+      <bpmn2:messageEventDefinition />
+    </bpmn2:intermediateCatchEvent>
+    <bpmn2:task id="Activity_0oqftyw" name="Send Signed Contract to Buyer">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>Send Signed Contract to Buyer</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_1q0oxd9</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_0i4kcla</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:task id="Activity_1ijamrd" name="Send Draft Contract to Buyer">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>Send Draft Contract to Buyer</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_1mr2q9a</bpmn2:incoming>
+      <bpmn2:incoming>Flow_1ll53my</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_0vpcbh7</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:userTask id="Activity_15n1i7s" name="Draft Sales Contract (Chinese + English / Russian)">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>Draft Sales Contract (Chinese + English / Russian)</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_1u0k0n7</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_147tsrg</bpmn2:outgoing>
+      <bpmn2:ioSpecification>
+        <bpmn2:dataInput id="Activity_15n1i7s_TaskNameInputX" itemSubjectRef="_Activity_15n1i7s_TaskNameInputXItem" name="TaskName" drools:dtype="Object" />
+        <bpmn2:dataInput id="Activity_15n1i7s_SkippableInputX" itemSubjectRef="_Activity_15n1i7s_SkippableInputXItem" name="Skippable" drools:dtype="Object" />
+        <bpmn2:inputSet>
+          <bpmn2:dataInputRefs>Activity_15n1i7s_TaskNameInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>Activity_15n1i7s_SkippableInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Activity_15n1i7s_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression">Task</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression">Activity_15n1i7s_TaskNameInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Activity_15n1i7s_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression">false</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression">Activity_15n1i7s_SkippableInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:userTask id="Activity_1t30ona" name="Negotiate Terms (Price, Incoterms, Delivery)">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>Negotiate Terms (Price, Incoterms, Delivery)</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_19lm79q</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_0m5t8jo</bpmn2:outgoing>
+      <bpmn2:ioSpecification>
+        <bpmn2:dataInput id="Activity_1t30ona_TaskNameInputX" itemSubjectRef="_Activity_1t30ona_TaskNameInputXItem" name="TaskName" drools:dtype="Object" />
+        <bpmn2:dataInput id="Activity_1t30ona_SkippableInputX" itemSubjectRef="_Activity_1t30ona_SkippableInputXItem" name="Skippable" drools:dtype="Object" />
+        <bpmn2:inputSet>
+          <bpmn2:dataInputRefs>Activity_1t30ona_TaskNameInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>Activity_1t30ona_SkippableInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Activity_1t30ona_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression">Task</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression">Activity_1t30ona_TaskNameInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Activity_1t30ona_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression">false</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression">Activity_1t30ona_SkippableInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:exclusiveGateway id="Gateway_0d2mu35" name="Accepted?" gatewayDirection="Diverging">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>Accepted?</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_049s87m</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_19lm79q</bpmn2:outgoing>
+      <bpmn2:outgoing>Flow_1u0k0n7</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:userTask id="Activity_0xgjbsk" name="Review Buyer Inquiry &#38; Check Export License">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>Review Buyer Inquiry &amp; Check Export License</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_1nqb9o7</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_1s8c9l0</bpmn2:outgoing>
+      <bpmn2:ioSpecification>
+        <bpmn2:dataInput id="Activity_0xgjbsk_TaskNameInputX" itemSubjectRef="_Activity_0xgjbsk_TaskNameInputXItem" name="TaskName" drools:dtype="Object" />
+        <bpmn2:dataInput id="Activity_0xgjbsk_SkippableInputX" itemSubjectRef="_Activity_0xgjbsk_SkippableInputXItem" name="Skippable" drools:dtype="Object" />
+        <bpmn2:inputSet>
+          <bpmn2:dataInputRefs>Activity_0xgjbsk_TaskNameInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>Activity_0xgjbsk_SkippableInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Activity_0xgjbsk_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression">Task</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression">Activity_0xgjbsk_TaskNameInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Activity_0xgjbsk_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression">false</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression">Activity_0xgjbsk_SkippableInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:userTask id="Activity_16lsgok" name="Prepare Proforma Invoice / Quotation">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>Prepare Proforma Invoice / Quotation</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_0ry8u0c</bpmn2:incoming>
+      <bpmn2:incoming>Flow_1s8c9l0</bpmn2:incoming>
+      <bpmn2:incoming>Flow_0m5t8jo</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_11mtltw</bpmn2:outgoing>
+      <bpmn2:ioSpecification>
+        <bpmn2:dataInput id="Activity_16lsgok_TaskNameInputX" itemSubjectRef="_Activity_16lsgok_TaskNameInputXItem" name="TaskName" drools:dtype="Object" />
+        <bpmn2:dataInput id="Activity_16lsgok_SkippableInputX" itemSubjectRef="_Activity_16lsgok_SkippableInputXItem" name="Skippable" drools:dtype="Object" />
+        <bpmn2:inputSet>
+          <bpmn2:dataInputRefs>Activity_16lsgok_TaskNameInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>Activity_16lsgok_SkippableInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Activity_16lsgok_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression">Task</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression">Activity_16lsgok_TaskNameInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Activity_16lsgok_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression">false</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression">Activity_16lsgok_SkippableInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:userTask id="Activity_09b1u4d" name="Revise Contract &#38; Re-send">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>Revise Contract &amp; Re-send</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_0kw34ir</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_1ll53my</bpmn2:outgoing>
+      <bpmn2:ioSpecification>
+        <bpmn2:dataInput id="Activity_09b1u4d_TaskNameInputX" itemSubjectRef="_Activity_09b1u4d_TaskNameInputXItem" name="TaskName" drools:dtype="Object" />
+        <bpmn2:dataInput id="Activity_09b1u4d_SkippableInputX" itemSubjectRef="_Activity_09b1u4d_SkippableInputXItem" name="Skippable" drools:dtype="Object" />
+        <bpmn2:inputSet>
+          <bpmn2:dataInputRefs>Activity_09b1u4d_TaskNameInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>Activity_09b1u4d_SkippableInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Activity_09b1u4d_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression">Task</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression">Activity_09b1u4d_TaskNameInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Activity_09b1u4d_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression">false</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression">Activity_09b1u4d_SkippableInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:exclusiveGateway id="Gateway_043f4hc" name="Amendments Acceptable?" gatewayDirection="Diverging">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>Amendments Acceptable?</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_18ernjm</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_0qqxi05</bpmn2:outgoing>
+      <bpmn2:outgoing>Flow_0kw34ir</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:userTask id="Activity_1yew5h8" name="Review Buyer Amendments">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>Review Buyer Amendments</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_1w9b4kq</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_18ernjm</bpmn2:outgoing>
+      <bpmn2:ioSpecification>
+        <bpmn2:dataInput id="Activity_1yew5h8_TaskNameInputX" itemSubjectRef="_Activity_1yew5h8_TaskNameInputXItem" name="TaskName" drools:dtype="Object" />
+        <bpmn2:dataInput id="Activity_1yew5h8_SkippableInputX" itemSubjectRef="_Activity_1yew5h8_SkippableInputXItem" name="Skippable" drools:dtype="Object" />
+        <bpmn2:inputSet>
+          <bpmn2:dataInputRefs>Activity_1yew5h8_TaskNameInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>Activity_1yew5h8_SkippableInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Activity_1yew5h8_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression">Task</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression">Activity_1yew5h8_TaskNameInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Activity_1yew5h8_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression">false</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression">Activity_1yew5h8_SkippableInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:userTask id="Activity_0c79n6k" name="Legal Review of Contract Terms">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>Legal Review of Contract Terms</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_147tsrg</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_08tv67q</bpmn2:outgoing>
+      <bpmn2:ioSpecification>
+        <bpmn2:dataInput id="Activity_0c79n6k_TaskNameInputX" itemSubjectRef="_Activity_0c79n6k_TaskNameInputXItem" name="TaskName" drools:dtype="Object" />
+        <bpmn2:dataInput id="Activity_0c79n6k_SkippableInputX" itemSubjectRef="_Activity_0c79n6k_SkippableInputXItem" name="Skippable" drools:dtype="Object" />
+        <bpmn2:inputSet>
+          <bpmn2:dataInputRefs>Activity_0c79n6k_TaskNameInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>Activity_0c79n6k_SkippableInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Activity_0c79n6k_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression">Task</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression">Activity_0c79n6k_TaskNameInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Activity_0c79n6k_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression">false</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression">Activity_0c79n6k_SkippableInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:userTask id="Activity_0caparb" name="Sign Contract by Authorized Representative">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>Sign Contract by Authorized Representative</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_1tvt1bq</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_1q0oxd9</bpmn2:outgoing>
+      <bpmn2:ioSpecification>
+        <bpmn2:dataInput id="Activity_0caparb_TaskNameInputX" itemSubjectRef="_Activity_0caparb_TaskNameInputXItem" name="TaskName" drools:dtype="Object" />
+        <bpmn2:dataInput id="Activity_0caparb_SkippableInputX" itemSubjectRef="_Activity_0caparb_SkippableInputXItem" name="Skippable" drools:dtype="Object" />
+        <bpmn2:inputSet>
+          <bpmn2:dataInputRefs>Activity_0caparb_TaskNameInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>Activity_0caparb_SkippableInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Activity_0caparb_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression">Task</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression">Activity_0caparb_TaskNameInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Activity_0caparb_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression">false</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression">Activity_0caparb_SkippableInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:userTask id="Activity_12j9lif" name="Print &#38; Stamp Contract (Company Seal / Chop)">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>Print &amp; Stamp Contract (Company Seal / Chop)</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_0qqxi05</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_1tvt1bq</bpmn2:outgoing>
+      <bpmn2:ioSpecification>
+        <bpmn2:dataInput id="Activity_12j9lif_TaskNameInputX" itemSubjectRef="_Activity_12j9lif_TaskNameInputXItem" name="TaskName" drools:dtype="Object" />
+        <bpmn2:dataInput id="Activity_12j9lif_SkippableInputX" itemSubjectRef="_Activity_12j9lif_SkippableInputXItem" name="Skippable" drools:dtype="Object" />
+        <bpmn2:inputSet>
+          <bpmn2:dataInputRefs>Activity_12j9lif_TaskNameInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>Activity_12j9lif_SkippableInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Activity_12j9lif_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression">Task</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression">Activity_12j9lif_TaskNameInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Activity_12j9lif_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression">false</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression">Activity_12j9lif_SkippableInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:userTask id="Activity_1jsbru1" name="Management Approval to Proceed">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>Management Approval to Proceed</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_08tv67q</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_1mr2q9a</bpmn2:outgoing>
+      <bpmn2:ioSpecification>
+        <bpmn2:dataInput id="Activity_1jsbru1_TaskNameInputX" itemSubjectRef="_Activity_1jsbru1_TaskNameInputXItem" name="TaskName" drools:dtype="Object" />
+        <bpmn2:dataInput id="Activity_1jsbru1_SkippableInputX" itemSubjectRef="_Activity_1jsbru1_SkippableInputXItem" name="Skippable" drools:dtype="Object" />
+        <bpmn2:inputSet>
+          <bpmn2:dataInputRefs>Activity_1jsbru1_TaskNameInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>Activity_1jsbru1_SkippableInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Activity_1jsbru1_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression">Task</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression">Activity_1jsbru1_TaskNameInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Activity_1jsbru1_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression">false</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression">Activity_1jsbru1_SkippableInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:task id="Activity_09rhf8i" name="Send Quotation to Buyer">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>Send Quotation to Buyer</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_1ydridj</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_0hqzmyk</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:userTask id="Activity_1pr8iv2" name="Revise Quotation">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>Revise Quotation</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_07hll7g</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_0ry8u0c</bpmn2:outgoing>
+      <bpmn2:ioSpecification>
+        <bpmn2:dataInput id="Activity_1pr8iv2_TaskNameInputX" itemSubjectRef="_Activity_1pr8iv2_TaskNameInputXItem" name="TaskName" drools:dtype="Object" />
+        <bpmn2:dataInput id="Activity_1pr8iv2_SkippableInputX" itemSubjectRef="_Activity_1pr8iv2_SkippableInputXItem" name="Skippable" drools:dtype="Object" />
+        <bpmn2:inputSet>
+          <bpmn2:dataInputRefs>Activity_1pr8iv2_TaskNameInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>Activity_1pr8iv2_SkippableInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Activity_1pr8iv2_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression">Task</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression">Activity_1pr8iv2_TaskNameInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Activity_1pr8iv2_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression">false</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression">Activity_1pr8iv2_SkippableInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:exclusiveGateway id="Gateway_07w1mvl" name="Quote Approved?" gatewayDirection="Diverging">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>Quote Approved?</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_0urgfzv</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_1ydridj</bpmn2:outgoing>
+      <bpmn2:outgoing>Flow_07hll7g</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:businessRuleTask id="Activity_1ydj0pz" name="Internal Pricing Approval" implementation="http://www.jboss.org/drools/rule" drools:ruleFlowGroup="">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>Internal Pricing Approval</drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_11mtltw</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_0urgfzv</bpmn2:outgoing>
+    </bpmn2:businessRuleTask>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="order_processing_as_is">
+      <bpmndi:BPMNShape id="shape_Lane_1sfq7vr" bpmnElement="Lane_1sfq7vr">
+        <dc:Bounds x="-285" y="300" width="2168" height="270" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_Lane_1nmw5hd" bpmnElement="Lane_1nmw5hd">
+        <dc:Bounds x="-285" y="570" width="2168" height="180" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_Lane_1w0w0ye" bpmnElement="Lane_1w0w0ye">
+        <dc:Bounds x="-285" y="750" width="2168" height="320" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape__3C475AB8-3164-4E36-B1FB-9181A8DE970E" bpmnElement="_3C475AB8-3164-4E36-B1FB-9181A8DE970E">
+        <dc:Bounds x="1017.7660992775001" y="1568.035214515" width="152.9999999999999" height="101" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_Event_0db25fa" bpmnElement="Event_0db25fa">
+        <dc:Bounds x="412" y="492" width="56" height="56" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_Activity_0p5v16j" bpmnElement="Activity_0p5v16j">
+        <dc:Bounds x="965" y="370" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_Event_1frad2u" bpmnElement="Event_1frad2u">
+        <dc:Bounds x="-238" y="452" width="56" height="56" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_Event_1bl2qk0" bpmnElement="Event_1bl2qk0">
+        <dc:Bounds x="1797" y="452" width="56" height="56" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_Event_0pxedle" bpmnElement="Event_0pxedle">
+        <dc:Bounds x="1657" y="452" width="56" height="56" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_Activity_0oqftyw" bpmnElement="Activity_0oqftyw">
+        <dc:Bounds x="1425" y="420" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_Activity_1ijamrd" bpmnElement="Activity_1ijamrd">
+        <dc:Bounds x="815" y="400" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_Activity_15n1i7s" bpmnElement="Activity_15n1i7s">
+        <dc:Bounds x="635" y="470" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_Activity_1t30ona" bpmnElement="Activity_1t30ona">
+        <dc:Bounds x="645" y="360" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_Gateway_0d2mu35" bpmnElement="Gateway_0d2mu35" isMarkerVisible="true">
+        <dc:Bounds x="510" y="455" width="56" height="56" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_Activity_0xgjbsk" bpmnElement="Activity_0xgjbsk">
+        <dc:Bounds x="-155" y="440" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_Activity_16lsgok" bpmnElement="Activity_16lsgok">
+        <dc:Bounds x="-5" y="440" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_Activity_09b1u4d" bpmnElement="Activity_09b1u4d">
+        <dc:Bounds x="1275" y="590" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_Gateway_043f4hc" bpmnElement="Gateway_043f4hc" isMarkerVisible="true">
+        <dc:Bounds x="1120" y="655" width="56" height="56" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_Activity_1yew5h8" bpmnElement="Activity_1yew5h8">
+        <dc:Bounds x="965" y="640" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_Activity_0c79n6k" bpmnElement="Activity_0c79n6k">
+        <dc:Bounds x="645" y="640" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_Activity_0caparb" bpmnElement="Activity_0caparb">
+        <dc:Bounds x="1425" y="910" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_Activity_12j9lif" bpmnElement="Activity_12j9lif">
+        <dc:Bounds x="1275" y="910" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_Activity_1jsbru1" bpmnElement="Activity_1jsbru1">
+        <dc:Bounds x="645" y="850" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_Activity_09rhf8i" bpmnElement="Activity_09rhf8i">
+        <dc:Bounds x="195" y="820" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_Activity_1pr8iv2" bpmnElement="Activity_1pr8iv2">
+        <dc:Bounds x="205" y="930" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_Gateway_07w1mvl" bpmnElement="Gateway_07w1mvl" isMarkerVisible="true">
+        <dc:Bounds x="120" y="835" width="56" height="56" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_Activity_1ydj0pz" bpmnElement="Activity_1ydj0pz">
+        <dc:Bounds x="-5" y="820" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="edge_shape_Event_0pxedle_to_shape_Event_1bl2qk0" bpmnElement="Flow_0u6z56m">
+        <di:waypoint x="1693" y="470" />
+        <di:waypoint x="1797" y="470" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_Activity_0oqftyw_to_shape_Event_0pxedle" bpmnElement="Flow_0i4kcla">
+        <di:waypoint x="1525" y="460" />
+        <di:waypoint x="1591" y="460" />
+        <di:waypoint x="1591" y="470" />
+        <di:waypoint x="1657" y="470" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_Activity_1ijamrd_to_shape_Activity_0p5v16j" bpmnElement="Flow_0vpcbh7">
+        <di:waypoint x="915" y="440" />
+        <di:waypoint x="940" y="440" />
+        <di:waypoint x="940" y="410" />
+        <di:waypoint x="965" y="410" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_Gateway_0d2mu35_to_shape_Activity_15n1i7s" bpmnElement="Flow_1u0k0n7">
+        <di:waypoint x="560" y="480" />
+        <di:waypoint x="598" y="480" />
+        <di:waypoint x="598" y="510" />
+        <di:waypoint x="635" y="510" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_Gateway_0d2mu35_to_shape_Activity_1t30ona" bpmnElement="Flow_19lm79q">
+        <di:waypoint x="535" y="455" />
+        <di:waypoint x="535" y="400" />
+        <di:waypoint x="645" y="400" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_Event_0db25fa_to_shape_Gateway_0d2mu35" bpmnElement="Flow_049s87m">
+        <di:waypoint x="468" y="520" />
+        <di:waypoint x="489" y="520" />
+        <di:waypoint x="489" y="480" />
+        <di:waypoint x="513" y="480" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_Event_1frad2u_to_shape_Activity_0xgjbsk" bpmnElement="Flow_1nqb9o7">
+        <di:waypoint x="-202" y="470" />
+        <di:waypoint x="-178" y="470" />
+        <di:waypoint x="-178" y="500" />
+        <di:waypoint x="-155" y="500" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_Activity_1t30ona_to_shape_Activity_16lsgok" bpmnElement="Flow_0m5t8jo">
+        <di:waypoint x="695" y="360" />
+        <di:waypoint x="695" y="330" />
+        <di:waypoint x="475" y="330" />
+        <di:waypoint x="475" y="460" />
+        <di:waypoint x="95" y="460" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_Activity_0xgjbsk_to_shape_Activity_16lsgok" bpmnElement="Flow_1s8c9l0">
+        <di:waypoint x="-55" y="480" />
+        <di:waypoint x="-5" y="480" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_Activity_09b1u4d_to_shape_Activity_1ijamrd" bpmnElement="Flow_1ll53my">
+        <di:waypoint x="1275" y="630" />
+        <di:waypoint x="1095" y="630" />
+        <di:waypoint x="1095" y="460" />
+        <di:waypoint x="915" y="460" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_Gateway_043f4hc_to_shape_Activity_09b1u4d" bpmnElement="Flow_0kw34ir">
+        <di:waypoint x="1170" y="680" />
+        <di:waypoint x="1223" y="680" />
+        <di:waypoint x="1223" y="710" />
+        <di:waypoint x="1325" y="710" />
+        <di:waypoint x="1325" y="670" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_Activity_1yew5h8_to_shape_Gateway_043f4hc" bpmnElement="Flow_18ernjm">
+        <di:waypoint x="1065" y="680" />
+        <di:waypoint x="1120" y="680" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_Activity_0p5v16j_to_shape_Activity_1yew5h8" bpmnElement="Flow_1w9b4kq">
+        <di:waypoint x="1015" y="450" />
+        <di:waypoint x="1015" y="640" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_Activity_15n1i7s_to_shape_Activity_0c79n6k" bpmnElement="Flow_147tsrg">
+        <di:waypoint x="695" y="550" />
+        <di:waypoint x="695" y="640" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_Activity_0caparb_to_shape_Activity_0oqftyw" bpmnElement="Flow_1q0oxd9">
+        <di:waypoint x="1475" y="910" />
+        <di:waypoint x="1475" y="813" />
+        <di:waypoint x="1490" y="813" />
+        <di:waypoint x="1490" y="583" />
+        <di:waypoint x="1475" y="583" />
+        <di:waypoint x="1475" y="500" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_Activity_12j9lif_to_shape_Activity_0caparb" bpmnElement="Flow_1tvt1bq">
+        <di:waypoint x="1375" y="950" />
+        <di:waypoint x="1425" y="950" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_Gateway_043f4hc_to_shape_Activity_12j9lif" bpmnElement="Flow_0qqxi05">
+        <di:waypoint x="1145" y="705" />
+        <di:waypoint x="1145" y="950" />
+        <di:waypoint x="1275" y="950" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_Activity_1jsbru1_to_shape_Activity_1ijamrd" bpmnElement="Flow_1mr2q9a">
+        <di:waypoint x="745" y="890" />
+        <di:waypoint x="780" y="890" />
+        <di:waypoint x="780" y="470" />
+        <di:waypoint x="815" y="470" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_Activity_0c79n6k_to_shape_Activity_1jsbru1" bpmnElement="Flow_08tv67q">
+        <di:waypoint x="695" y="720" />
+        <di:waypoint x="695" y="850" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_Activity_09rhf8i_to_shape_Event_0db25fa" bpmnElement="Flow_0hqzmyk">
+        <di:waypoint x="295" y="860" />
+        <di:waypoint x="354" y="860" />
+        <di:waypoint x="354" y="510" />
+        <di:waypoint x="412" y="510" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_Activity_1pr8iv2_to_shape_Activity_16lsgok" bpmnElement="Flow_0ry8u0c">
+        <di:waypoint x="305" y="1000" />
+        <di:waypoint x="335" y="1000" />
+        <di:waypoint x="335" y="480" />
+        <di:waypoint x="95" y="480" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_Gateway_07w1mvl_to_shape_Activity_1pr8iv2" bpmnElement="Flow_07hll7g">
+        <di:waypoint x="145" y="885" />
+        <di:waypoint x="145" y="970" />
+        <di:waypoint x="205" y="970" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_Gateway_07w1mvl_to_shape_Activity_09rhf8i" bpmnElement="Flow_1ydridj">
+        <di:waypoint x="170" y="860" />
+        <di:waypoint x="195" y="860" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_Activity_1ydj0pz_to_shape_Gateway_07w1mvl" bpmnElement="Flow_0urgfzv">
+        <di:waypoint x="95" y="860" />
+        <di:waypoint x="120" y="860" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_Activity_16lsgok_to_shape_Activity_1ydj0pz" bpmnElement="Flow_11mtltw">
+        <di:waypoint x="45" y="520" />
+        <di:waypoint x="45" y="820" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+  <bpmn2:relationship type="BPSimData">
+    <bpmn2:extensionElements>
+      <bpsim:BPSimData>
+        <bpsim:Scenario id="default" name="Simulationscenario">
+          <bpsim:ScenarioParameters />
+          <bpsim:ElementParameters elementRef="Activity_1ydj0pz">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="Activity_1pr8iv2">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="Activity_09rhf8i">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="Activity_1jsbru1">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="Activity_12j9lif">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="Activity_0caparb">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="Activity_0c79n6k">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="Activity_1yew5h8">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="Activity_09b1u4d">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="Activity_16lsgok">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="Activity_0xgjbsk">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="Activity_1t30ona">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="Activity_15n1i7s">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="Activity_1ijamrd">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="Activity_0oqftyw">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="Activity_0p5v16j">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="_3C475AB8-3164-4E36-B1FB-9181A8DE970E">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+        </bpsim:Scenario>
+      </bpsim:BPSimData>
+    </bpmn2:extensionElements>
+    <bpmn2:source>_h6pm4FO8ED-KY67hY5CZ8w</bpmn2:source>
+    <bpmn2:target>_h6pm4FO8ED-KY67hY5CZ8w</bpmn2:target>
+  </bpmn2:relationship>
+</bpmn2:definitions>

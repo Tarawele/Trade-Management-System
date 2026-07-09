@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+             id="Definitions_Comp"
+             targetNamespace="http://bpmn.io/schema/bpmn">
+
+  <!-- ========================================== -->
+  <!-- КЕЙС 1: ОТМЕНА ЗАКАЗА (Compensation)       -->
+  <!-- ========================================== -->
+  <process id="OrderCancellation" name="Отмена заказа" isExecutable="true">
+
+    <startEvent id="OC_Start" name="Заказ получен" />
+
+    <sequenceFlow id="OC_F1" sourceRef="OC_Start" targetRef="OC_Reserve" />
+
+    <!-- Task 1: Reserve -->
+    <task id="OC_Reserve" name="Зарезервировать товар на складе" />
+
+    <!-- Compensation Boundary Event on Reserve -->
+    <boundaryEvent id="OC_CompReserve_BE" attachedToRef="OC_Reserve">
+      <compensateEventDefinition />
+    </boundaryEvent>
+
+    <!-- Compensation Handler: Cancel Reserve -->
+    <task id="OC_CompReserve_Handler" name="Отменить резерв товара" isForCompensation="true" />
+
+    <!-- Compensation Association -->
+    <association id="OC_Assoc1" sourceRef="OC_CompReserve_BE" targetRef="OC_CompReserve_Handler" />
+
+    <sequenceFlow id="OC_F2" sourceRef="OC_Reserve" targetRef="OC_Charge" />
+
+    <!-- Task 2: Charge -->
+    <task id="OC_Charge" name="Списать средства с карты" />
+
+    <boundaryEvent id="OC_CompCharge_BE" attachedToRef="OC_Charge">
+      <compensateEventDefinition />
+    </boundaryEvent>
+
+    <task id="OC_CompCharge_Handler" name="Вернуть средства на карту" isForCompensation="true" />
+
+    <association id="OC_Assoc2" sourceRef="OC_CompCharge_BE" targetRef="OC_CompCharge_Handler" />
+
+    <sequenceFlow id="OC_F3" sourceRef="OC_Charge" targetRef="OC_Delivery" />
+
+    <!-- Task 3: Delivery -->
+    <task id="OC_Delivery" name="Создать заявку в доставку" />
+
+    <boundaryEvent id="OC_CompDelivery_BE" attachedToRef="OC_Delivery">
+      <compensateEventDefinition />
+    </boundaryEvent>
+
+    <task id="OC_CompDelivery_Handler" name="Отменить заявку в доставку" isForCompensation="true" />
+
+    <association id="OC_Assoc3" sourceRef="OC_CompDelivery_BE" targetRef="OC_CompDelivery_Handler" />
+
+    <sequenceFlow id="OC_F4" sourceRef="OC_Delivery" targetRef="OC_Gateway" />
+
+    <!-- Gateway -->
+    <exclusiveGateway id="OC_Gateway" name="Клиент подтвердил?" />
+
+    <sequenceFlow id="OC_F5_Yes" name="Да" sourceRef="OC_Gateway" targetRef="OC_EndSuccess" />
+
+    <sequenceFlow id="OC_F5_No" name="Нет" sourceRef="OC_Gateway" targetRef="OC_ThrowComp" />
+
+    <!-- Throwing Compensation Event -->
+    <intermediateThrowEvent id="OC_ThrowComp" name="Отменить заказ">
+      <compensateEventDefinition />
+    </intermediateThrowEvent>
+
+    <sequenceFlow id="OC_F6" sourceRef="OC_ThrowComp" targetRef="OC_EndCancel" />
+
+    <endEvent id="OC_EndSuccess" name="Заказ выполнен" />
+
+    <endEvent id="OC_EndCancel" name="Заказ отменён" />
+
+  </process>
+
+  <!-- ========================================== -->
+  <!-- КЕЙС 2: ВОЗВРАТ ПЛАТЕЖА (Transaction)      -->
+  <!-- ========================================== -->
+  <process id="PaymentTransaction" name="Возврат платежа" isExecutable="true">
+
+    <startEvent id="PT_Start" name="Платёж инициирован" />
+
+    <sequenceFlow id="PT_F1" sourceRef="PT_Start" targetRef="PT_Tx" />
+
+    <!-- TRANSACTION SUB-PROCESS -->
+    <transaction id="PT_Tx" name="Обработка платежа">
+
+      <startEvent id="PT_TxStart" name="Начало платежа" />
+
+      <sequenceFlow id="PT_TxF1" sourceRef="PT_TxStart" targetRef="PT_TxCheck" />
+
+      <!-- Task: Check Card -->
+      <task id="PT_TxCheck" name="Проверить карту" />
+
+      <boundaryEvent id="PT_TxCompCheck_BE" attachedToRef="PT_TxCheck">
+        <compensateEventDefinition />
+      </boundaryEvent>
+
+      <task id="PT_TxCompCheck_H" name="Разблокировать карту" isForCompensation="true" />
+
+      <association id="PT_Assoc1" sourceRef="PT_TxCompCheck_BE" targetRef="PT_TxCompCheck_H" />
+
+      <sequenceFlow id="PT_TxF2" sourceRef="PT_TxCheck" targetRef="PT_TxCharge" />
+
+      <!-- Task: Charge -->
+      <task id="PT_TxCharge" name="Списать средства" />
+
+      <boundaryEvent id="PT_TxCompCharge_BE" attachedToRef="PT_TxCharge">
+        <compensateEventDefinition />
+      </boundaryEvent>
+
+      <task id="PT_TxCompCharge_H" name="Вернуть средства" isForCompensation="true" />
+
+      <association id="PT_Assoc2" sourceRef="PT_TxCompCharge_BE" targetRef="PT_TxCompCharge_H" />
+
+      <sequenceFlow id="PT_TxF3" sourceRef="PT_TxCharge" targetRef="PT_TxReceipt" />
+
+      <!-- Task: Send Receipt -->
+      <task id="PT_TxReceipt" name="Отправить чек клиенту" />
+
+      <boundaryEvent id="PT_TxCompReceipt_BE" attachedToRef="PT_TxReceipt">
+        <compensateEventDefinition />
+      </boundaryEvent>
+
+      <task id="PT_TxCompReceipt_H" name="Отозвать чек / уведомить об отмене" isForCompensation="true" />
+
+      <association id="PT_Assoc3" sourceRef="PT_TxCompReceipt_BE" targetRef="PT_TxCompReceipt_H" />
+
+      <sequenceFlow id="PT_TxF4" sourceRef="PT_TxReceipt" targetRef="PT_TxEnd" />
+
+      <endEvent id="PT_TxEnd" name="Платёж успешен" />
+
+      <!-- Timer inside transaction for auto-cancel -->
+      <boundaryEvent id="PT_TxTimer" attachedToRef="PT_TxCheck" cancelActivity="true">
+        <timerEventDefinition>
+          <timeDuration>PT15M</timeDuration>
+        </timerEventDefinition>
+      </boundaryEvent>
+
+      <sequenceFlow id="PT_TxF5" sourceRef="PT_TxTimer" targetRef="PT_TxCancelEnd" />
+
+      <endEvent id="PT_TxCancelEnd" name="Отмена по таймауту">
+        <cancelEventDefinition />
+      </endEvent>
+
+    </transaction>
+
+    <!-- Success path -->
+    <sequenceFlow id="PT_F2" sourceRef="PT_Tx" targetRef="PT_Invoice" />
+
+    <task id="PT_Invoice" name="Сформировать накладную" />
+
+    <sequenceFlow id="PT_F3" sourceRef="PT_Invoice" targetRef="PT_EndSuccess" />
+
+    <endEvent id="PT_EndSuccess" name="Заказ оплачен" />
+
+    <!-- Cancel Boundary Event on Transaction -->
+    <boundaryEvent id="PT_Cancel_BE" attachedToRef="PT_Tx">
+      <cancelEventDefinition />
+    </boundaryEvent>
+
+    <sequenceFlow id="PT_F4" sourceRef="PT_Cancel_BE" targetRef="PT_NotifyCancel" />
+
+    <task id="PT_NotifyCancel" name="Уведомить клиента об отмене" />
+
+    <sequenceFlow id="PT_F5" sourceRef="PT_NotifyCancel" targetRef="PT_LogCancel" />
+
+    <task id="PT_LogCancel" name="Записать причину в журнал" />
+
+    <sequenceFlow id="PT_F6" sourceRef="PT_LogCancel" targetRef="PT_EndCancel" />
+
+    <endEvent id="PT_EndCancel" name="Платёж отменён" />
+
+    <!-- Error Boundary Event on Transaction -->
+    <boundaryEvent id="PT_Error_BE" attachedToRef="PT_Tx">
+      <errorEventDefinition errorRef="PaymentSystemError" />
+    </boundaryEvent>
+
+    <sequenceFlow id="PT_F7" sourceRef="PT_Error_BE" targetRef="PT_Support" />
+
+    <task id="PT_Support" name="Уведомить поддержку" />
+
+    <sequenceFlow id="PT_F8" sourceRef="PT_Support" targetRef="PT_EndError" />
+
+    <endEvent id="PT_EndError" name="Ошибка платежа" />
+
+  </process>
+
+  <error id="PaymentSystemError" name="Системная ошибка платежа" errorCode="PAYMENT_001" />
+
+</definitions>

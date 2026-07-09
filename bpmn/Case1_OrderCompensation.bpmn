@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             id="Definitions_OrderCompensation"
+             targetNamespace="http://bpmn.io/schema/bpmn"
+             exporter="Kimi K2.6"
+             exporterVersion="1.0">
+
+  <!-- ========================================== -->
+  <!-- ПРОЦЕСС: Отмена заказа с компенсацией      -->
+  <!-- ========================================== -->
+  <process id="OrderCompensation" name="Отмена заказа с компенсацией" isExecutable="true">
+
+    <!-- Start Event -->
+    <startEvent id="Start_1" name="Заказ получен">
+      <documentation>Клиент оформил заказ на сайте</documentation>
+    </startEvent>
+
+    <sequenceFlow id="Flow_1" sourceRef="Start_1" targetRef="Task_Receive" />
+
+    <!-- Task: Receive Order -->
+    <userTask id="Task_Receive" name="Получить заказ">
+      <documentation>Фиксация состава заказа, контактов, адреса доставки</documentation>
+    </userTask>
+
+    <sequenceFlow id="Flow_2" sourceRef="Task_Receive" targetRef="Transaction_Order" />
+
+    <!-- ========================================== -->
+    <!-- TRANSACTION SUB-PROCESS                    -->
+    <!-- Двойная рамка: внешняя толстая, внутренняя тонкая -->
+    <!-- ========================================== -->
+    <transaction id="Transaction_Order" name="Обработка заказа">
+
+      <startEvent id="T_Start" name="Начало транзакции" />
+
+      <sequenceFlow id="T_F1" sourceRef="T_Start" targetRef="Task_Reserve" />
+
+      <!-- Task 1: Reserve Product -->
+      <serviceTask id="Task_Reserve" name="Зарезервировать товар">
+        <documentation>Резервирование товара на складе через API WMS</documentation>
+      </serviceTask>
+
+      <sequenceFlow id="T_F2" sourceRef="Task_Reserve" targetRef="Task_Charge" />
+
+      <!-- Task 2: Charge Money -->
+      <serviceTask id="Task_Charge" name="Списать деньги">
+        <documentation>Списание средств с карты клиента через платежный шлюз</documentation>
+      </serviceTask>
+
+      <sequenceFlow id="T_F3" sourceRef="Task_Charge" targetRef="Task_SendReceipt" />
+
+      <!-- Task 3: Send Receipt -->
+      <sendTask id="Task_SendReceipt" name="Отправить чек">
+        <documentation>Email с электронным чеком (фискальный или подтверждение)</documentation>
+      </sendTask>
+
+      <sequenceFlow id="T_F4" sourceRef="Task_SendReceipt" targetRef="T_End_Success" />
+
+      <!-- Normal End inside Transaction -->
+      <endEvent id="T_End_Success" name="Транзакция успешна">
+        <documentation>Все шаги транзакции выполнены без ошибок</documentation>
+      </endEvent>
+
+      <!-- Cancel End (if error or cancellation) -->
+      <endEvent id="T_End_Cancel" name="Отмена транзакции">
+        <cancelEventDefinition />
+        <documentation>Автоматически вызывает все Compensation Handler'ы внутри транзакции</documentation>
+      </endEvent>
+
+      <!-- ================================== -->
+      <!-- COMPENSATION HANDLERS              -->
+      <!-- ================================== -->
+
+      <!-- Compensation Boundary Event for Reserve -->
+      <boundaryEvent id="Comp_Reserve" name="Компенсация резерва" attachedToRef="Task_Reserve">
+        <compensateEventDefinition />
+      </boundaryEvent>
+
+      <!-- Compensation Handler: Unreserve -->
+      <serviceTask id="Task_Comp_Reserve" name="Снять резерв" isForCompensation="true">
+        <documentation>Освобождение зарезервированного товара на складе</documentation>
+      </serviceTask>
+
+      <association id="Assoc_Reserve" sourceRef="Comp_Reserve" targetRef="Task_Comp_Reserve" associationDirection="None" />
+
+      <!-- Compensation Boundary Event for Charge -->
+      <boundaryEvent id="Comp_Charge" name="Компенсация списания" attachedToRef="Task_Charge">
+        <compensateEventDefinition />
+      </boundaryEvent>
+
+      <!-- Compensation Handler: Refund -->
+      <serviceTask id="Task_Comp_Charge" name="Вернуть деньги" isForCompensation="true">
+        <documentation>Возврат средств на карту клиента через платежный шлюз</documentation>
+      </serviceTask>
+
+      <association id="Assoc_Charge" sourceRef="Comp_Charge" targetRef="Task_Comp_Charge" associationDirection="None" />
+
+      <!-- Compensation Boundary Event for Send Receipt -->
+      <boundaryEvent id="Comp_Receipt" name="Компенсация чека" attachedToRef="Task_SendReceipt">
+        <compensateEventDefinition />
+      </boundaryEvent>
+
+      <!-- Compensation Handler: Send Cancellation -->
+      <sendTask id="Task_Comp_Receipt" name="Отправить письмо об отмене" isForCompensation="true">
+        <documentation>Email клиенту: заказ отменен, деньги возвращены</documentation>
+      </sendTask>
+
+      <association id="Assoc_Receipt" sourceRef="Comp_Receipt" targetRef="Task_Comp_Receipt" associationDirection="None" />
+
+    </transaction>
+
+    <sequenceFlow id="Flow_3" sourceRef="Transaction_Order" targetRef="Gateway_Cancel" />
+
+    <!-- ========================================== -->
+    <!-- GATEWAY: Client cancelled?                 -->
+    <!-- ========================================== -->
+    <exclusiveGateway id="Gateway_Cancel" name="Клиент отменил?" default="Flow_NoCancel">
+      <documentation>Клиент нажал "Отменить заказ" в течение 10 минут</documentation>
+    </exclusiveGateway>
+
+    <!-- Path: No cancellation -->
+    <sequenceFlow id="Flow_NoCancel" name="Нет" sourceRef="Gateway_Cancel" targetRef="Task_Delivery" />
+
+    <!-- Task: Delivery -->
+    <userTask id="Task_Delivery" name="Передать в доставку">
+      <documentation>Передача упакованного заказа курьерской службе</documentation>
+    </userTask>
+
+    <sequenceFlow id="Flow_4" sourceRef="Task_Delivery" targetRef="End_Success" />
+
+    <!-- End: Order Completed -->
+    <endEvent id="End_Success" name="Заказ выполнен">
+      <documentation>Заказ успешно доставлен клиенту</documentation>
+    </endEvent>
+
+    <!-- Path: Yes, cancel -->
+    <sequenceFlow id="Flow_Cancel" name="Да, отменить" sourceRef="Gateway_Cancel" targetRef="Throw_Comp">
+      <conditionExpression xsi:type="tFormalExpression">${cancelled == true}</conditionExpression>
+    </sequenceFlow>
+
+    <!-- ========================================== -->
+    <!-- THROWING COMPENSATION EVENT                -->
+    <!-- ========================================== -->
+    <intermediateThrowEvent id="Throw_Comp" name="Вызвать компенсацию">
+      <compensateEventDefinition />
+      <documentation>Инициирует выполнение всех Compensation Handler'ов внутри Transaction Sub-process</documentation>
+    </intermediateThrowEvent>
+
+    <sequenceFlow id="Flow_5" sourceRef="Throw_Comp" targetRef="End_Cancelled" />
+
+    <!-- End: Order Cancelled -->
+    <endEvent id="End_Cancelled" name="Заказ отменен">
+      <documentation>Все компенсирующие действия выполнены: деньги возвращены, резерв снят, клиент уведомлен</documentation>
+    </endEvent>
+
+  </process>
+
+  <!-- ========================================== -->
+  <!-- DIAGRAM INFORMATION (BPMN DI)            -->
+  <!-- ========================================== -->
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1" name="Отмена заказа с компенсацией">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="OrderCompensation">
+
+      <!-- ====== РОДИТЕЛЬСКИЙ ПРОЦЕСС ====== -->
+
+      <!-- Start Event -->
+      <bpmndi:BPMNShape id="Start_1_di" bpmnElement="Start_1">
+        <omgdc:Bounds x="152" y="242" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="142" y="285" width="80" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <!-- Task: Receive Order -->
+      <bpmndi:BPMNShape id="Task_Receive_di" bpmnElement="Task_Receive">
+        <omgdc:Bounds x="240" y="220" width="160" height="80" />
+      </bpmndi:BPMNShape>
+
+      <!-- Transaction Sub-process (Expanded) -->
+      <bpmndi:BPMNShape id="Transaction_Order_di" bpmnElement="Transaction_Order" isExpanded="true">
+        <omgdc:Bounds x="120" y="360" width="820" height="320" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="130" y="340" width="200" height="20" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <!-- Gateway: Cancel? -->
+      <bpmndi:BPMNShape id="Gateway_Cancel_di" bpmnElement="Gateway_Cancel" isMarkerVisible="true">
+        <omgdc:Bounds x="500" y="235" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="485" y="290" width="80" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <!-- Task: Delivery -->
+      <bpmndi:BPMNShape id="Task_Delivery_di" bpmnElement="Task_Delivery">
+        <omgdc:Bounds x="620" y="220" width="160" height="80" />
+      </bpmndi:BPMNShape>
+
+      <!-- End: Success -->
+      <bpmndi:BPMNShape id="End_Success_di" bpmnElement="End_Success">
+        <omgdc:Bounds x="840" y="242" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="825" y="285" width="80" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <!-- Throwing Compensation -->
+      <bpmndi:BPMNShape id="Throw_Comp_di" bpmnElement="Throw_Comp">
+        <omgdc:Bounds x="507" y="720" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="470" y="760" width="120" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <!-- End: Cancelled -->
+      <bpmndi:BPMNShape id="End_Cancelled_di" bpmnElement="End_Cancelled">
+        <omgdc:Bounds x="620" y="720" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="605" y="763" width="80" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <!-- ====== ВНУТРИ ТРАНЗАКЦИИ ====== -->
+
+      <!-- Start inside Transaction -->
+      <bpmndi:BPMNShape id="T_Start_di" bpmnElement="T_Start">
+        <omgdc:Bounds x="172" y="462" width="36" height="36" />
+      </bpmndi:BPMNShape>
+
+      <!-- Task: Reserve -->
+      <bpmndi:BPMNShape id="Task_Reserve_di" bpmnElement="Task_Reserve">
+        <omgdc:Bounds x="260" y="440" width="160" height="80" />
+      </bpmndi:BPMNShape>
+
+      <!-- Compensation Boundary: Reserve -->
+      <bpmndi:BPMNShape id="Comp_Reserve_di" bpmnElement="Comp_Reserve">
+        <omgdc:Bounds x="322" y="510" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="300" y="550" width="80" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <!-- Compensation Handler: Unreserve -->
+      <bpmndi:BPMNShape id="Task_Comp_Reserve_di" bpmnElement="Task_Comp_Reserve">
+        <omgdc:Bounds x="260" y="580" width="160" height="80" />
+      </bpmndi:BPMNShape>
+
+      <!-- Task: Charge -->
+      <bpmndi:BPMNShape id="Task_Charge_di" bpmnElement="Task_Charge">
+        <omgdc:Bounds x="460" y="440" width="160" height="80" />
+      </bpmndi:BPMNShape>
+
+      <!-- Compensation Boundary: Charge -->
+      <bpmndi:BPMNShape id="Comp_Charge_di" bpmnElement="Comp_Charge">
+        <omgdc:Bounds x="522" y="510" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="500" y="550" width="80" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <!-- Compensation Handler: Refund -->
+      <bpmndi:BPMNShape id="Task_Comp_Charge_di" bpmnElement="Task_Comp_Charge">
+        <omgdc:Bounds x="460" y="580" width="160" height="80" />
+      </bpmndi:BPMNShape>
+
+      <!-- Task: Send Receipt -->
+      <bpmndi:BPMNShape id="Task_SendReceipt_di" bpmnElement="Task_SendReceipt">
+        <omgdc:Bounds x="660" y="440" width="160" height="80" />
+      </bpmndi:BPMNShape>
+
+      <!-- Compensation Boundary: Receipt -->
+      <bpmndi:BPMNShape id="Comp_Receipt_di" bpmnElement="Comp_Receipt">
+        <omgdc:Bounds x="722" y="510" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="700" y="550" width="80" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <!-- Compensation Handler: Send Cancellation -->
+      <bpmndi:BPMNShape id="Task_Comp_Receipt_di" bpmnElement="Task_Comp_Receipt">
+        <omgdc:Bounds x="660" y="580" width="160" height="80" />
+      </bpmndi:BPMNShape>
+
+      <!-- End: Transaction Success -->
+      <bpmndi:BPMNShape id="T_End_Success_di" bpmnElement="T_End_Success">
+        <omgdc:Bounds x="860" y="462" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="840" y="505" width="80" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <!-- ====== SEQUENCE FLOWS (Родитель) ====== -->
+
+      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1">
+        <omgdi:waypoint x="188" y="260" />
+        <omgdi:waypoint x="240" y="260" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_2_di" bpmnElement="Flow_2">
+        <omgdi:waypoint x="400" y="260" />
+        <omgdi:waypoint x="460" y="260" />
+        <omgdi:waypoint x="460" y="360" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_3_di" bpmnElement="Flow_3">
+        <omgdi:waypoint x="600" y="360" />
+        <omgdi:waypoint x="600" y="310" />
+        <omgdi:waypoint x="525" y="310" />
+        <omgdi:waypoint x="525" y="285" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_NoCancel_di" bpmnElement="Flow_NoCancel">
+        <omgdi:waypoint x="550" y="260" />
+        <omgdi:waypoint x="620" y="260" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="560" y="235" width="30" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_4_di" bpmnElement="Flow_4">
+        <omgdi:waypoint x="780" y="260" />
+        <omgdi:waypoint x="840" y="260" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_Cancel_di" bpmnElement="Flow_Cancel">
+        <omgdi:waypoint x="525" y="285" />
+        <omgdi:waypoint x="525" y="720" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="530" y="490" width="80" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_5_di" bpmnElement="Flow_5">
+        <omgdi:waypoint x="543" y="738" />
+        <omgdi:waypoint x="620" y="738" />
+      </bpmndi:BPMNEdge>
+
+      <!-- ====== SEQUENCE FLOWS (Внутри транзакции) ====== -->
+
+      <bpmndi:BPMNEdge id="T_F1_di" bpmnElement="T_F1">
+        <omgdi:waypoint x="208" y="480" />
+        <omgdi:waypoint x="260" y="480" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="T_F2_di" bpmnElement="T_F2">
+        <omgdi:waypoint x="420" y="480" />
+        <omgdi:waypoint x="460" y="480" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="T_F3_di" bpmnElement="T_F3">
+        <omgdi:waypoint x="620" y="480" />
+        <omgdi:waypoint x="660" y="480" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="T_F4_di" bpmnElement="T_F4">
+        <omgdi:waypoint x="820" y="480" />
+        <omgdi:waypoint x="860" y="480" />
+      </bpmndi:BPMNEdge>
+
+      <!-- ====== ASSOCIATIONS (Пунктирные линии к Compensation Handler'ам) ====== -->
+
+      <bpmndi:BPMNEdge id="Assoc_Reserve_di" bpmnElement="Assoc_Reserve">
+        <omgdi:waypoint x="340" y="546" />
+        <omgdi:waypoint x="340" y="580" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Assoc_Charge_di" bpmnElement="Assoc_Charge">
+        <omgdi:waypoint x="540" y="546" />
+        <omgdi:waypoint x="540" y="580" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Assoc_Receipt_di" bpmnElement="Assoc_Receipt">
+        <omgdi:waypoint x="740" y="546" />
+        <omgdi:waypoint x="740" y="580" />
+      </bpmndi:BPMNEdge>
+
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</definitions>

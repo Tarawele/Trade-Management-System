@@ -1,0 +1,26 @@
+<!-- Это ТРАНЗАКЦИЯ. Обратите внимание: элемент <transaction>, не <subProcess> -->
+<transaction id="Transaction_Order" name="Обработка заказа">
+
+  <!-- Внутри обычные задачи -->
+  <serviceTask id="Task_Reserve" name="Зарезервировать товар" />
+  
+  <!-- Граничное событие компенсации на задаче -->
+  <boundaryEvent id="Boundary_Reserve" attachedToRef="Task_Reserve">
+    <compensateEventDefinition />
+  </boundaryEvent>
+  
+  <!-- Handler: привязан ассоциацией (не стрелкой!) -->
+  <serviceTask id="Handler_Reserve" name="Снять резерв" isForCompensation="true" />
+  
+  <!-- Ассоциация: пунктирная линия от Boundary Event к Handler -->
+  <association id="Assoc_Reserve" sourceRef="Boundary_Reserve" targetRef="Handler_Reserve" />
+
+  <!-- Обычный End (успех) -->
+  <endEvent id="End_Success" name="Успех" />
+  
+  <!-- Cancel End (отмена транзакции) -->
+  <endEvent id="End_Cancel" name="Отмена">
+    <cancelEventDefinition />
+  </endEvent>
+
+</transaction>

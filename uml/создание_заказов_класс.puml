@@ -1,0 +1,80 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+title Class Diagram — E-Commerce System
+
+abstract class User {
+  -id: UUID
+  -email: String
+  +login(): Boolean
+  +logout(): void
+}
+
+class Customer {
+  -phone: String
+  -loyaltyPoints: int
+  +placeOrder(): Order
+  +updateProfile(): void
+}
+
+class Address {
+  -city: String
+  -street: String
+  -zipCode: String
+  +validate(): Boolean
+}
+
+class Order {
+  -orderId: UUID
+  -orderDate: Date
+  -totalAmount: Decimal
+  +calculateTotal(): Decimal
+  +submit(): void
+  +cancel(): void
+}
+
+class OrderItem {
+  -quantity: int
+  -unitPrice: Decimal
+  +getSubtotal(): Decimal
+}
+
+class Product {
+  -sku: String
+  -name: String
+  -price: Decimal
+  -stock: int
+  +checkStock(): Boolean
+  +updatePrice(): void
+}
+
+class Catalog {
+  -catalogId: UUID
+  -name: String
+  +addProduct(): void
+  +removeProduct(): void
+}
+
+interface PaymentProcessor {
+  +processPayment(): Boolean
+  +refund(): void
+}
+
+' Наследование
+User <|-- Customer
+
+' Композиция
+Customer "1" *-- "1..*" Address
+Order "1" *-- "1..*" OrderItem
+
+' Агрегация
+Catalog "1" o-- "0..*" Product
+
+' Ассоциация
+OrderItem "1" --> "1" Product : product
+Order "0..*" --> "1" Customer : places
+
+' Зависимость
+Order ..> PaymentProcessor : <<use>>
+
+@enduml     

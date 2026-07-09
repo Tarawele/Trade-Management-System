@@ -1,0 +1,40 @@
+@startuml
+title Online Checkout — Sequence Diagram
+
+actor ":Customer" as C
+participant ":WebApp" as W
+participant ":OrderController" as OC
+participant ":PaymentService" as PS
+participant ":InventoryService" as IS
+participant ":EmailService" as ES
+
+C -> W : checkout()
+activate W
+W -> OC : createOrder()
+activate OC
+
+opt [isMember == true]
+    OC -> OC : applyDiscount()
+end
+
+loop [0..2]
+    OC -> PS : charge(amount)
+    activate PS
+    PS -> PS : validateCard()
+    PS --> OC : return :AuthCode
+    deactivate PS
+end
+
+OC --> W : return :OrderId
+deactivate OC
+W --> C : displayConfirm()
+deactivate W
+
+alt Success
+    OC -> IS : updateStock()
+    OC -> ES : sendConfirmation()
+else Failure
+    OC -> ES : sendFailureNotice()
+end
+
+@enduml
