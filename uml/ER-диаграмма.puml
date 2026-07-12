@@ -1,0 +1,49 @@
+@startuml
+!define PK <&key>
+!define FK <&link-intact>
+
+title ER-диаграмма: Университет (Crow's Foot)
+
+entity STUDENT {
+  * student_id : UUID <<PK>>
+  --
+  * first_name : String
+  * last_name : String
+  * email : String
+  birth_date : Date
+}
+
+entity TEACHER {
+  * teacher_id : UUID <<PK>>
+  --
+  * full_name : String
+  * department : String
+  * email : String
+}
+
+entity COURSE {
+  * course_id : UUID <<PK>>
+  --
+  * course_name : String
+  * credits : int
+  * department : String
+  --
+  * teacher_id : UUID <<FK>>
+}
+
+entity ENROLLMENT {
+  * enrollment_id : UUID <<PK>>
+  --
+  * student_id : UUID <<FK>>
+  * course_id : UUID <<FK>>
+  --
+  grade : String
+}
+
+' Relationships
+TEACHER ||--o{ COURSE : teaches
+STUDENT }o--o{ COURSE : enrolled_in
+STUDENT ||--o{ ENROLLMENT : has
+COURSE ||--o{ ENROLLMENT : contains
+
+@enduml
